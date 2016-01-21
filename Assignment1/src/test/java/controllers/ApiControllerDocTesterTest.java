@@ -17,14 +17,20 @@
 package controllers;
 
 
+import models.Card;
 import org.junit.Test;
 
 import ninja.NinjaDocTester;
 import org.doctester.testbrowser.Request;
 import org.doctester.testbrowser.Response;
-import org.hamcrest.CoreMatchers;
+
 import static org.hamcrest.CoreMatchers.containsString;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
+import models.Deck;
+
+import java.util.ArrayList;
 
 public class ApiControllerDocTesterTest extends NinjaDocTester {
     
@@ -52,4 +58,29 @@ public class ApiControllerDocTesterTest extends NinjaDocTester {
         assertThat(response.payload, containsString("columnOfCards"));
     }
 
+    @Test
+    public void testDeckExists(){
+        Deck deck = new Deck();
+
+        assertNotNull(deck);
+    }
+
+    @Test
+    public void testDeckSize(){
+        Deck deck = new Deck();
+
+        assertEquals(52, deck.getCardsRemaining());
+    }
+
+    @Test
+    public void testDeckCardsCorrect(){
+        Deck deck = new Deck();
+
+        for(int i = 0; i < 52; i++){
+            Card card = deck.drawCard();
+            System.out.print(card.getRank() + " " + card.getSuit() + " " + card.getColor());
+        }
+
+        //something something
+    }
 }

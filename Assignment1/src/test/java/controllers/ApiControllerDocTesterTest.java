@@ -83,4 +83,13 @@ public class ApiControllerDocTesterTest extends NinjaDocTester {
 
         //something something
     }
+
+    @Test
+    public void testResetButton() {
+        Response response = makeRequest(
+                Request.GET().url(
+                    testServerUrl().path(URL_ACES_UP)));
+
+        assertThat(response.payload, containsString("resetButton"));
+    }
 }

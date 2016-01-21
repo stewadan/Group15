@@ -32,7 +32,18 @@ public class test {
             Card card = deck.drawCard();
             System.out.print(card.getRank() + " " + card.getSuit() + " " + card.getColor() + "\n");
         }
-
+    System.out.print("\n");
         //something something
     }
+    @Test
+    public void testDeckShuffleCorrect() {
+        Deck deck = new Deck();
+        deck.shuffleDeck();
+        for (int i = 0; i < 52; i++) {
+            Card card = deck.drawCard();
+            System.out.print(card.getRank() + " " + card.getSuit() + " " + card.getColor() + "\n");
+        }
+
+    }
+
 }
